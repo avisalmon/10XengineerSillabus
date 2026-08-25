@@ -188,12 +188,21 @@ p:last-child { margin-bottom: 0; }
   margin-bottom: 16px;
 }
 
+.byline {
+  font-family: var(--sans);
+  font-size: 0.86rem;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  margin: 0 0 14px;
+  padding-left: 14px;
+  border-left: 2px solid var(--accent-mid);
+}
+
 .more-link {
   font-family: var(--sans);
   font-size: 0.85rem;
   margin: 0;
-}
-.more-link a {
+}.more-link a {
   color: var(--accent-mid);
   text-decoration: none;
   border-bottom: 1px solid var(--rule);

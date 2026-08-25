@@ -19,6 +19,7 @@ COURSE = {
     "year": "2027",
     "status": "Draft, under construction",
     "updated": "2026-08-25",
+    "instructors": "Delivered by Avi Salmon and Yuval Vered, Intel Israel",
 }
 
 INTRO = [
@@ -524,6 +525,7 @@ def build_index():
 
   <section id="about">
     <p class="opening">{e(lede)}</p>
+    <p class="byline">{e(COURSE["instructors"])}</p>
     <p class="more-link"><a href="course-details.html">Full course details, requirements and grading</a></p>
   </section>
 
@@ -553,9 +555,10 @@ def build_details():
         f"<tr><td>{e(k)}</td><td>{e(v)}</td></tr>" for k, v in GRADING
     )
     staff = "\n".join(
-        f'<tr><td>{e(r)}</td><td class="tbd">TBD</td><td class="tbd">TBD</td>'
+        f'<tr><td>{e(r)}</td><td>{e(n)}</td><td class="tbd">TBD</td>'
         f'<td class="tbd">TBD</td></tr>'
-        for r in ("Lecturer", "TA")
+        for r, n in (("Lecturer", "Avi Salmon, Intel Israel"),
+                     ("Lecturer", "Yuval Vered, Intel Israel"))
     )
 
     sched = []
