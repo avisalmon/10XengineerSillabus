@@ -78,6 +78,15 @@ body {
   max-width: 60ch;
 }
 
+.masthead .credit {
+  margin: 12px 0 0;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #d7e8dd;
+  max-width: 60ch;
+}
+
 .masthead .meta {
   margin-top: 26px;
   padding-top: 16px;
@@ -186,16 +195,6 @@ p:last-child { margin-bottom: 0; }
   line-height: 1.62;
   color: var(--ink);
   margin-bottom: 16px;
-}
-
-.byline {
-  font-family: var(--sans);
-  font-size: 0.86rem;
-  letter-spacing: 0.03em;
-  color: var(--muted);
-  margin: 0 0 14px;
-  padding-left: 14px;
-  border-left: 2px solid var(--accent-mid);
 }
 
 .more-link {

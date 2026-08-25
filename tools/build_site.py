@@ -479,18 +479,20 @@ def site_nav(current, depth):
     return '<nav class="sidenav">\n' + "\n".join(items) + "\n</nav>"
 
 
-def masthead(kicker, title, subtitle, meta_items, home_link=False, up_prefix=None):
+def masthead(kicker, title, subtitle, meta_items, home_link=False, up_prefix=None, credit=None):
     up = ("../" if home_link else "") if up_prefix is None else up_prefix
     back = f'<a class="back" href="{up}index.html">Back to course home</a>' if home_link else ""
     metas = "".join(f"<span>{e(m)}</span>" for m in meta_items)
     kick = f'<p class="kicker">{e(kicker)}</p>' if kicker else ""
     sub = f'<p class="sub">{e(subtitle)}</p>' if subtitle else ""
+    cred = f'<p class="credit">{e(credit)}</p>' if credit else ""
     return f"""<header class="masthead">
   <div class="wrap">
     {back}
     {kick}
     <h1>{e(title)}</h1>
     {sub}
+    {cred}
     <div class="meta">{metas}</div>
   </div>
 </header>"""
@@ -517,6 +519,7 @@ def build_index():
         COURSE["title"],
         COURSE["subtitle"],
         [COURSE["status"], "Last updated " + COURSE["updated"]],
+        credit=COURSE["instructors"],
     )}
 
 <div class="layout">
@@ -525,7 +528,6 @@ def build_index():
 
   <section id="about">
     <p class="opening">{e(lede)}</p>
-    <p class="byline">{e(COURSE["instructors"])}</p>
     <p class="more-link"><a href="course-details.html">Full course details, requirements and grading</a></p>
   </section>
 
