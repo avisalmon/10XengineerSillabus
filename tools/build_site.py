@@ -101,6 +101,7 @@ LESSONS = [
             ("Hands-on", "TBD"),
             ("Deliverable", "TBD"),
         ],
+        "video": "VlSTGzG5CeM",
     },
     {
         "num": 2,
@@ -504,10 +505,11 @@ def build_index():
     rows = []
     for L in LESSONS:
         label = L.get("label", f"Lesson {L['num']}")
+        flag = '<span class="row-video">Recording</span>' if L.get("video") else ""
         rows.append(f"""      <a class="lesson-row" href="lessons/{L['slug']}.html">
         <span class="row-num">{e(label)}</span>
         <span class="row-main">
-          <span class="row-title">{e(L['title'])}</span>
+          <span class="row-title">{e(L['title'])}{flag}</span>
           <span class="row-tag">{e(L['tagline'])}</span>
         </span>
         <span class="row-kind">{e(L['kind'])}</span>
@@ -682,6 +684,26 @@ def build_lesson(i, L):
         n = LESSONS[i + 1]
         next_link = f'<a class="next" href="{n["slug"]}.html">Next: {e(n["title"])}</a>'
 
+    video_id = L.get("video")
+    if video_id:
+        recording = f"""    <div class="video-frame">
+      <iframe src="https://www.youtube-nocookie.com/embed/{e(video_id)}"
+              title="{e(L['title'])}, lesson recording"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+    </div>
+    <p class="video-note"><a href="https://youtu.be/{e(video_id)}" target="_blank" rel="noopener">Open the recording on YouTube</a></p>"""
+    else:
+        recording = """    <div class="video-placeholder" role="img" aria-label="Recording not yet available">
+      <div class="vp-inner">
+        <div class="vp-mark"></div>
+        <p class="vp-title">Recording not yet available</p>
+        <p class="vp-note">The video for this lesson will be published here after the session is recorded.</p>
+      </div>
+    </div>"""
+
     body = f"""{masthead(label, L["title"], L["tagline"], [L["kind"]], home_link=True)}
 
 <div class="layout">
@@ -690,13 +712,7 @@ def build_lesson(i, L):
 
   <section id="recording">
     <h2>Lesson recording</h2>
-    <div class="video-placeholder" role="img" aria-label="Recording not yet available">
-      <div class="vp-inner">
-        <div class="vp-mark"></div>
-        <p class="vp-title">Recording not yet available</p>
-        <p class="vp-note">The video for this lesson will be published here after the session is recorded.</p>
-      </div>
-    </div>
+{recording}
   </section>
 
   <section id="description">
