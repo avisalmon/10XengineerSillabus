@@ -35,7 +35,7 @@ body {
   padding: 54px 24px 40px;
   border-bottom: 3px solid #0b2b1d;
 }
-.masthead .wrap { max-width: 1120px; margin: 0 auto; }
+.masthead .wrap { max-width: 1220px; margin: 0 auto; }
 
 .masthead .back {
   display: inline-block;
@@ -105,7 +105,7 @@ body {
   display: flex;
   gap: 52px;
   align-items: flex-start;
-  max-width: 1120px;
+  max-width: 1220px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -113,8 +113,16 @@ body {
 main {
   flex: 1 1 auto;
   min-width: 0;
-  max-width: 720px;
+  max-width: 880px;
   padding: 48px 0 90px;
+}
+
+main p,
+main .lede,
+main .opening,
+main ol,
+main ul {
+  max-width: 74ch;
 }
 
 /* ---------- side navigation ---------- */
