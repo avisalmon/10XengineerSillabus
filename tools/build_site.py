@@ -62,7 +62,7 @@ REQUIREMENTS = (
 GRADING = [
     ("Attendance", "10%"),
     ("Personal static website, assignment from lesson 2", "10%"),
-    ("ESP32 hackathon result, lesson 7", "20%"),
+    ("ESP32 hackathon result, lesson 5", "20%"),
     ("Personal project specification", "30%"),
     ("Personal project demonstration", "30%"),
 ]
@@ -137,41 +137,12 @@ LESSONS = [
     {
         "num": 3,
         "slug": "lesson-03",
-        "title": "Introduction to level two, the practical level",
-        "kind": "Lecture and practice",
-        "tagline": "Real projects in a real IDE: Python, virtual environments, git, and ownership "
-                   "of the result.",
-        "body": [
-            "The third lecture is where the course proper begins. Level two is the practical level, "
-            "and its defining property is ownership: we are responsible for the result, whoever or "
-            "whatever produced it. Participants start writing Python scripts and small Python GUI "
-            "applications inside a real development environment, whether VS Code, Cursor or another "
-            "IDE, so that there is an actual project in front of them rather than a chat window. We "
-            "set up a virtual environment, work with git, make commits, and track versions of the "
-            "work as it changes.",
-            "Alongside the mechanics, the lecture puts the question of ownership on the table "
-            "directly. If AI wrote the code, who is answerable for it, and what does an engineer "
-            "have to do before signing off on it. The lecture is largely hands-on: participants "
-            "write and run Python throughout the session rather than only watching.",
-        ],
-        "fields": [
-            ("Goal", "TBD"),
-            ("Topics", "TBD"),
-            ("Hands-on", "Writing Python scripts and a simple Python GUI, creating and using a "
-                         "virtual environment, initializing a repository and committing work in "
-                         "tracked steps."),
-            ("Deliverable", "TBD"),
-        ],
-    },
-    {
-        "num": 4,
-        "slug": "lesson-04",
         "title": "Skills, APIs, MCP and project memory",
         "kind": "Lecture and practice",
         "tagline": "The layer that turns a chat assistant into a working tool, and where a project "
                    "keeps what it knows.",
         "body": [
-            "The fourth lecture builds the layer that turns a chat assistant into a working tool. "
+            "The third lecture builds the layer that turns a chat assistant into a working tool. "
             "We start with skills: packaged, reusable instructions that give an agent a defined "
             "competence it can apply repeatedly rather than being re-explained each time. We then "
             "work with APIs directly, calling external services from our own code and understanding "
@@ -196,15 +167,15 @@ LESSONS = [
         ],
     },
     {
-        "num": 5,
-        "slug": "lesson-05",
+        "num": 4,
+        "slug": "lesson-04",
         "title": "Formal process, specs and the virtual AI team",
         "kind": "Lecture and practice",
         "tagline": "Specifications, backlogs and agile method applied to a team of agents you "
                    "manage yourself.",
         "body": [
-            "The fifth lecture moves from single tasks to real projects. A larger project cannot be "
-            "held in one prompt or one conversation, so it needs a formal process around it. We "
+            "The fourth lecture moves from single tasks to real projects. A larger project cannot "
+            "be held in one prompt or one conversation, so it needs a formal process around it. We "
             "work with specifications, backlogs and agile practice, and we borrow directly from the "
             "world of software engineering and engineering team process, because these methods were "
             "designed for exactly the problem we now have: coordinating work across several actors "
@@ -228,58 +199,35 @@ LESSONS = [
         ],
     },
     {
-        "num": 6,
-        "slug": "lesson-06",
-        "title": "Learning a new technology with AI as teacher and mediator",
-        "kind": "Practice",
-        "tagline": "An ESP32 kit, no tutorial, and one task: make it work.",
-        "body": [
-            "The sixth lecture is pure practice, and its subject is the situation an engineer meets "
-            "constantly: an unfamiliar technology, a deadline, and no time to become an expert "
-            "first. Here AI acts as teacher and as mediator between the participant and the "
-            "hardware, and the exercise is to find out how well that works and where it fails.",
-            "Each participant receives an ESP32 kit with no tutorial, no guided instructions and no "
-            "prepared example to copy. The task is to reach the point of controlling the device. "
-            "Everything needed, identifying the board, setting up the toolchain, understanding the "
-            "pins, writing and flashing firmware, and debugging what comes back, has to be worked "
-            "out through the AI, the documentation it points to, and the participant's own judgment "
-            "about which of its answers to trust.",
-            "The lesson being taught is transferable and is not specific to the ESP32. What matters "
-            "is the method: how to interrogate an unfamiliar domain through AI, how to tell a "
-            "confident wrong answer from a correct one before you know the field well enough to see "
-            "it, and how to converge on working hardware without a tutorial.",
-        ],
-        "fields": [
-            ("Goal", "TBD"),
-            ("Topics", "TBD"),
-            ("Hands-on", "Bring up an ESP32 board from nothing and control it, working without "
-                         "tutorials."),
-            ("Deliverable", "TBD"),
-        ],
-    },
-    {
-        "num": 7,
-        "slug": "lesson-07",
+        "num": 5,
+        "slug": "lesson-05",
         "title": "ESP32 hackathon",
         "kind": "Competition",
-        "tagline": "Two hours, unseen tasks, one week of AI-acquired knowledge. Graded on speed.",
+        "tagline": "Two hours, unseen tasks, hardware nobody was taught. Graded on speed.",
         "body": [
-            "The seventh session is a hackathon built on the ESP32 kit handed out in lesson 6. "
-            "Participants have had a week with the hardware, and whatever they know about it they "
-            "learned through AI rather than from a course on embedded systems. This session tests "
-            "what that week was worth.",
+            "The fifth session is a hackathon on hardware. Each participant receives an ESP32 kit "
+            "in advance, with no tutorial, no guided instructions and no prepared example to copy. "
+            "Bringing the board up is their own problem, and whatever they know about it by the day "
+            "of the session they learned through AI rather than from a course on embedded systems.",
             "The format is a timed competition among the participants. Tasks are handed out at the "
             "start of the session and are not published in advance, so nobody can prepare a "
             "solution beforehand. Each participant works for two hours and completes as many tasks "
             "as they can. Grading is based on the time taken to complete each task, which makes "
             "speed the measured quantity rather than elegance.",
             "The purpose is to put the claim of the course under real conditions. The participants "
-            "hold only shallow knowledge of the technology, acquired in a week, and are asked to "
-            "produce working results under time pressure on problems they have not seen. What the "
-            "session demonstrates is how much a practical engineer can actually deliver at that "
-            "speed using agentic AI tools, and where the limits of the approach show up.",
+            "hold only shallow knowledge of the technology, acquired on their own in a short time, "
+            "and are asked to produce working results under time pressure on problems they have not "
+            "seen. What the session demonstrates is how much a practical engineer can actually "
+            "deliver at that speed using agentic AI tools, and where the limits of the approach "
+            "show up.",
+            "The subject being taught is transferable and is not specific to the ESP32. What "
+            "matters is the method: how to interrogate an unfamiliar domain through AI, how to tell "
+            "a confident wrong answer from a correct one before you know the field well enough to "
+            "see it, and how to converge on working hardware without a tutorial.",
         ],
         "fields": [
+            ("Preparation", "The ESP32 kit is distributed ahead of the session. Participants bring "
+                            "the board up on their own, without tutorials, before they arrive."),
             ("Format", "Two hours, individual competition, tasks revealed at the start."),
             ("Grading", "Based on time to complete each task."),
             ("Deliverable", "Working solutions to as many of the assigned tasks as possible, "
@@ -287,16 +235,17 @@ LESSONS = [
         ],
     },
     {
-        "num": 8,
-        "slug": "lesson-08",
-        "title": "Classical AI, from statistics to the eve of the transformer",
+        "num": 6,
+        "slug": "lesson-06",
+        "title": "AI theory 1: classical AI, from statistics to the eve of the transformer",
         "kind": "Theory",
         "tagline": "The vocabulary and methods that came before large language models, and when "
                    "they remain the right choice.",
         "body": [
-            "The eighth lecture is theory. It covers artificial intelligence as it existed before "
-            "large language models: statistical methods and classical machine learning, and the "
-            "line of technologies that led up to, but does not include, the transformer era.",
+            "The sixth lecture is the first of four sessions on AI in depth. It covers artificial "
+            "intelligence as it existed before large language models: statistical methods and "
+            "classical machine learning, and the line of technologies that led up to, but does not "
+            "include, the transformer era.",
             "The emphasis is on terminology and on the methods themselves. Participants should come "
             "out able to read the vocabulary of the field and know what the standard techniques do: "
             "supervised and unsupervised learning, regression and classification, clustering, "
@@ -318,18 +267,19 @@ LESSONS = [
         ],
     },
     {
-        "num": 9,
-        "slug": "lesson-09",
-        "title": "Large language models and transformers",
-        "kind": "Theory",
-        "tagline": "The architecture and the mathematics, and how knowing them makes for better "
-                   "agentic flows.",
+        "num": 7,
+        "slug": "lesson-07",
+        "title": "AI theory 2: large language models and transformers",
+        "kind": "Theory and practice",
+        "tagline": "The architecture and the mathematics, then train a small transformer of your "
+                   "own on TinyStories.",
         "body": [
-            "The ninth lecture continues the theory and picks up where lesson 8 stopped. It follows "
-            "the development of large language models and the transformer architecture that made "
-            "them possible, and covers both the ideas and the mathematics underneath them: "
-            "tokenization and embeddings, attention and why it replaced what came before, the "
-            "structure of a transformer block, and what training and inference actually consist of.",
+            "The seventh lecture is the second of the four in-depth sessions and picks up where "
+            "lesson 6 stopped. It follows the development of large language models and the "
+            "transformer architecture that made them possible, and covers both the ideas and the "
+            "mathematics underneath them: tokenization and embeddings, attention and why it "
+            "replaced what came before, the structure of a transformer block, and what training "
+            "and inference actually consist of.",
             "The reason for teaching the mathematics is practical rather than academic. Much of "
             "what appears mysterious about working with these systems follows directly from how "
             "they operate. Context limits, the cost of long inputs, sensitivity to how a prompt is "
@@ -339,6 +289,83 @@ LESSONS = [
             "better agentic flows: they structure context deliberately, decide what to put in front "
             "of the model and what to keep out, and stop expecting behaviour the architecture "
             "cannot provide.",
+            "The session carries a task. Each participant trains a small transformer of their own "
+            "on the TinyStories dataset, a corpus of short, simple stories designed so that a model "
+            "small enough to train on ordinary hardware can still produce coherent language. The "
+            "point is not to build something competitive. It is to run the full loop once, from "
+            "data to tokenizer to training to generation, and to see the mechanism from the inside "
+            "rather than described on a slide.",
+        ],
+        "fields": [
+            ("Goal", "TBD"),
+            ("Topics", "TBD"),
+            ("Hands-on", "Train a small transformer on the TinyStories dataset, taking it from raw "
+                         "data through tokenization and training to generated text."),
+            ("Deliverable", "A trained model, the code that produced it, and a sample of its "
+                            "output."),
+        ],
+    },
+    {
+        "num": 8,
+        "slug": "lesson-08",
+        "title": "Inside the harness: how an IDE hosts an agent",
+        "kind": "Theory and practice",
+        "tagline": "Take apart the building blocks of Visual Studio Code, then build a working "
+                   "harness of your own.",
+        "body": [
+            "The eighth lecture is the third of the four in-depth sessions, and it opens the tool "
+            "that participants have been using since the start of the course. Visual Studio Code is "
+            "built from a small number of clearly separated parts: the editor core, the extension "
+            "host that runs third party code out of process, the language server protocol, the "
+            "debug adapter protocol, the terminal, and the extension API that binds them together. "
+            "We go through these parts and see what each one is responsible for.",
+            "The reason for the detour is that an AI harness is built out of exactly these pieces. "
+            "The harness is what stands between a model and the work: it decides what the model is "
+            "shown, which tools it may call, how a call is executed, what comes back, and what the "
+            "user is asked to approve. Once the structure of the editor is clear, the structure of "
+            "the agent running inside it stops being mysterious, and the behaviour of any agentic "
+            "tool becomes something that can be reasoned about rather than guessed at.",
+            "Participants then build a harness of their own. It is small and it does not need to "
+            "compete with anything, but it must genuinely work: take a request, assemble context, "
+            "call a model, execute a tool, return the result, and keep the human in control of what "
+            "is allowed to happen. Building one is the fastest way to understand every harness the "
+            "participant will use afterwards.",
+        ],
+        "fields": [
+            ("Goal", "TBD"),
+            ("Topics", "TBD"),
+            ("Hands-on", "Build a working AI harness: context assembly, a model call, tool "
+                         "execution, and a human approval step."),
+            ("Deliverable", "A running harness, with its source, that completes at least one task "
+                            "end to end."),
+        ],
+    },
+    {
+        "num": 9,
+        "slug": "lesson-09",
+        "title": "The 10X engineer on the exponential slope",
+        "kind": "Lecture",
+        "tagline": "Working in a field where the tools, the methods and the profession change "
+                   "faster than they can be learned.",
+        "body": [
+            "The ninth lecture is the last of the four in-depth sessions, and it steps back from "
+            "the tools to the position of the engineer who uses them. The technology is changing on "
+            "an exponential slope: capabilities that justified a job title arrive as a product "
+            "feature within a year, methods taught at the start of a semester are dated by the end "
+            "of it, and the useful life of a specific skill is now shorter than the time it takes "
+            "to acquire it properly.",
+            "The lecture examines what that means for a working engineer. It covers what remains "
+            "stable when the tools do not: judgment, the ability to specify a problem, "
+            "responsibility for a result, and the capacity to learn a new domain quickly, which is "
+            "the ability the ESP32 session was designed to exercise. It covers what it costs to "
+            "stay current, how to distinguish a genuine shift from noise, and why the ability to "
+            "discard a hard-won method without regret is now part of the job.",
+            "The cultural side is treated as seriously as the technical one. The expectations "
+            "placed on engineers, the way teams are organized, what counts as competent work and "
+            "who is credited with it are all moving, and an engineer who tracks only the technology "
+            "will be surprised by the rest. The session closes the theory block by putting the "
+            "course itself in that context: what it teaches will age, and the point is to leave "
+            "with a way of working rather than with a set of current answers.",
         ],
         "fields": [
             ("Goal", "TBD"),
@@ -355,7 +382,7 @@ LESSONS = [
         "tagline": "AI that perceives and acts in the world, and the research being done on it at "
                    "the Technion.",
         "body": [
-            "The tenth lecture is the third and last of the theory sessions, and it turns to "
+            "The tenth lecture closes the theoretical part of the course and turns to "
             "physical AI: systems that perceive and act in the physical world rather than only "
             "producing text. This is the direction the field is moving in now, and it is the point "
             "where the course's own hardware work connects to current research.",

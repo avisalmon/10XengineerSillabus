@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lesson 3: Introduction to level two, the practical level</title>
+<title>Lesson 3: Skills, APIs, MCP and project memory</title>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -11,8 +11,8 @@
   <div class="wrap">
     <a class="back" href="../index.html">Back to course home</a>
     <p class="kicker">Lesson 3</p>
-    <h1>Introduction to level two, the practical level</h1>
-    <p class="sub">Real projects in a real IDE: Python, virtual environments, git, and ownership of the result.</p>
+    <h1>Skills, APIs, MCP and project memory</h1>
+    <p class="sub">The layer that turns a chat assistant into a working tool, and where a project keeps what it knows.</p>
     
     <div class="meta"><span>Lecture and practice</span></div>
   </div>
@@ -24,13 +24,13 @@
 <a href="../course-details.html" data-plain="1">Course details</a>
 <a href="../lessons/lesson-01.html"><span class="n">Lesson 1</span><span class="t">Introduction to the 10X engineer</span></a>
 <a href="../lessons/lesson-02.html"><span class="n">Lesson 2</span><span class="t">Level one, the user level</span></a>
-<a href="../lessons/lesson-03.html" class="active"><span class="n">Lesson 3</span><span class="t">Introduction to level two, the practical level</span></a>
-<a href="../lessons/lesson-04.html"><span class="n">Lesson 4</span><span class="t">Skills, APIs, MCP and project memory</span></a>
-<a href="../lessons/lesson-05.html"><span class="n">Lesson 5</span><span class="t">Formal process, specs and the virtual AI team</span></a>
-<a href="../lessons/lesson-06.html"><span class="n">Lesson 6</span><span class="t">Learning a new technology with AI as teacher and mediator</span></a>
-<a href="../lessons/lesson-07.html"><span class="n">Lesson 7</span><span class="t">ESP32 hackathon</span></a>
-<a href="../lessons/lesson-08.html"><span class="n">Lesson 8</span><span class="t">Classical AI, from statistics to the eve of the transformer</span></a>
-<a href="../lessons/lesson-09.html"><span class="n">Lesson 9</span><span class="t">Large language models and transformers</span></a>
+<a href="../lessons/lesson-03.html" class="active"><span class="n">Lesson 3</span><span class="t">Skills, APIs, MCP and project memory</span></a>
+<a href="../lessons/lesson-04.html"><span class="n">Lesson 4</span><span class="t">Formal process, specs and the virtual AI team</span></a>
+<a href="../lessons/lesson-05.html"><span class="n">Lesson 5</span><span class="t">ESP32 hackathon</span></a>
+<a href="../lessons/lesson-06.html"><span class="n">Lesson 6</span><span class="t">AI theory 1: classical AI, from statistics to the eve of the transformer</span></a>
+<a href="../lessons/lesson-07.html"><span class="n">Lesson 7</span><span class="t">AI theory 2: large language models and transformers</span></a>
+<a href="../lessons/lesson-08.html"><span class="n">Lesson 8</span><span class="t">Inside the harness: how an IDE hosts an agent</span></a>
+<a href="../lessons/lesson-09.html"><span class="n">Lesson 9</span><span class="t">The 10X engineer on the exponential slope</span></a>
 <a href="../lessons/lesson-10.html"><span class="n">Lesson 10</span><span class="t">Physical AI</span></a>
 <a href="../lessons/lesson-11.html"><span class="n">Lesson 11</span><span class="t">Personal project, definition and start of work</span></a>
 <a href="../lessons/lesson-12.html"><span class="n">Sessions 12 and 13</span><span class="t">Project presentations</span></a>
@@ -50,8 +50,9 @@
 
   <section id="description">
     <h2>Description</h2>
-    <p>The third lecture is where the course proper begins. Level two is the practical level, and its defining property is ownership: we are responsible for the result, whoever or whatever produced it. Participants start writing Python scripts and small Python GUI applications inside a real development environment, whether VS Code, Cursor or another IDE, so that there is an actual project in front of them rather than a chat window. We set up a virtual environment, work with git, make commits, and track versions of the work as it changes.</p>
-    <p>Alongside the mechanics, the lecture puts the question of ownership on the table directly. If AI wrote the code, who is answerable for it, and what does an engineer have to do before signing off on it. The lecture is largely hands-on: participants write and run Python throughout the session rather than only watching.</p>
+    <p>The third lecture builds the layer that turns a chat assistant into a working tool. We start with skills: packaged, reusable instructions that give an agent a defined competence it can apply repeatedly rather than being re-explained each time. We then work with APIs directly, calling external services from our own code and understanding what the agent can and cannot reach on its own. From there we cover MCP, what the protocol is for, what it actually does, and why a standard interface between models and tools matters once more than one tool is involved.</p>
+    <p>The lecture then widens to the harness around the model: the surrounding tooling that decides what the model sees, what it is allowed to do, and how its output is captured and checked. A significant part of the session is devoted to project memory, meaning where information about a project is kept so that it survives beyond a single conversation. We distinguish between the different approaches, memory that belongs to the project and lives in files and repositories under our control, and memory that belongs to the AI system and is managed for us, and we discuss when each is appropriate and what each one costs.</p>
+    <p>The practice for this lecture is to build a working application on top of free APIs.</p>
   </section>
 
   <section id="at-a-glance">
@@ -59,7 +60,7 @@
     <dl class="fields">
       <dt>Goal</dt><dd><span class="tbd">TBD</span></dd>
       <dt>Topics</dt><dd><span class="tbd">TBD</span></dd>
-      <dt>Hands-on</dt><dd>Writing Python scripts and a simple Python GUI, creating and using a virtual environment, initializing a repository and committing work in tracked steps.</dd>
+      <dt>Hands-on</dt><dd>Building a small application that consumes one or more free public APIs.</dd>
       <dt>Deliverable</dt><dd><span class="tbd">TBD</span></dd>
     </dl>
   </section>
@@ -71,7 +72,7 @@
 
   <nav class="pager">
     <a class="prev" href="lesson-02.html">Previous: Level one, the user level</a>
-    <a class="next" href="lesson-04.html">Next: Skills, APIs, MCP and project memory</a>
+    <a class="next" href="lesson-04.html">Next: Formal process, specs and the virtual AI team</a>
   </nav>
 
 </main>

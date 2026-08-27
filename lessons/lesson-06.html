@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lesson 6: Learning a new technology with AI as teacher and mediator</title>
+<title>Lesson 6: AI theory 1: classical AI, from statistics to the eve of the transformer</title>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -11,10 +11,10 @@
   <div class="wrap">
     <a class="back" href="../index.html">Back to course home</a>
     <p class="kicker">Lesson 6</p>
-    <h1>Learning a new technology with AI as teacher and mediator</h1>
-    <p class="sub">An ESP32 kit, no tutorial, and one task: make it work.</p>
+    <h1>AI theory 1: classical AI, from statistics to the eve of the transformer</h1>
+    <p class="sub">The vocabulary and methods that came before large language models, and when they remain the right choice.</p>
     
-    <div class="meta"><span>Practice</span></div>
+    <div class="meta"><span>Theory</span></div>
   </div>
 </header>
 
@@ -24,13 +24,13 @@
 <a href="../course-details.html" data-plain="1">Course details</a>
 <a href="../lessons/lesson-01.html"><span class="n">Lesson 1</span><span class="t">Introduction to the 10X engineer</span></a>
 <a href="../lessons/lesson-02.html"><span class="n">Lesson 2</span><span class="t">Level one, the user level</span></a>
-<a href="../lessons/lesson-03.html"><span class="n">Lesson 3</span><span class="t">Introduction to level two, the practical level</span></a>
-<a href="../lessons/lesson-04.html"><span class="n">Lesson 4</span><span class="t">Skills, APIs, MCP and project memory</span></a>
-<a href="../lessons/lesson-05.html"><span class="n">Lesson 5</span><span class="t">Formal process, specs and the virtual AI team</span></a>
-<a href="../lessons/lesson-06.html" class="active"><span class="n">Lesson 6</span><span class="t">Learning a new technology with AI as teacher and mediator</span></a>
-<a href="../lessons/lesson-07.html"><span class="n">Lesson 7</span><span class="t">ESP32 hackathon</span></a>
-<a href="../lessons/lesson-08.html"><span class="n">Lesson 8</span><span class="t">Classical AI, from statistics to the eve of the transformer</span></a>
-<a href="../lessons/lesson-09.html"><span class="n">Lesson 9</span><span class="t">Large language models and transformers</span></a>
+<a href="../lessons/lesson-03.html"><span class="n">Lesson 3</span><span class="t">Skills, APIs, MCP and project memory</span></a>
+<a href="../lessons/lesson-04.html"><span class="n">Lesson 4</span><span class="t">Formal process, specs and the virtual AI team</span></a>
+<a href="../lessons/lesson-05.html"><span class="n">Lesson 5</span><span class="t">ESP32 hackathon</span></a>
+<a href="../lessons/lesson-06.html" class="active"><span class="n">Lesson 6</span><span class="t">AI theory 1: classical AI, from statistics to the eve of the transformer</span></a>
+<a href="../lessons/lesson-07.html"><span class="n">Lesson 7</span><span class="t">AI theory 2: large language models and transformers</span></a>
+<a href="../lessons/lesson-08.html"><span class="n">Lesson 8</span><span class="t">Inside the harness: how an IDE hosts an agent</span></a>
+<a href="../lessons/lesson-09.html"><span class="n">Lesson 9</span><span class="t">The 10X engineer on the exponential slope</span></a>
 <a href="../lessons/lesson-10.html"><span class="n">Lesson 10</span><span class="t">Physical AI</span></a>
 <a href="../lessons/lesson-11.html"><span class="n">Lesson 11</span><span class="t">Personal project, definition and start of work</span></a>
 <a href="../lessons/lesson-12.html"><span class="n">Sessions 12 and 13</span><span class="t">Project presentations</span></a>
@@ -50,9 +50,9 @@
 
   <section id="description">
     <h2>Description</h2>
-    <p>The sixth lecture is pure practice, and its subject is the situation an engineer meets constantly: an unfamiliar technology, a deadline, and no time to become an expert first. Here AI acts as teacher and as mediator between the participant and the hardware, and the exercise is to find out how well that works and where it fails.</p>
-    <p>Each participant receives an ESP32 kit with no tutorial, no guided instructions and no prepared example to copy. The task is to reach the point of controlling the device. Everything needed, identifying the board, setting up the toolchain, understanding the pins, writing and flashing firmware, and debugging what comes back, has to be worked out through the AI, the documentation it points to, and the participant's own judgment about which of its answers to trust.</p>
-    <p>The lesson being taught is transferable and is not specific to the ESP32. What matters is the method: how to interrogate an unfamiliar domain through AI, how to tell a confident wrong answer from a correct one before you know the field well enough to see it, and how to converge on working hardware without a tutorial.</p>
+    <p>The sixth lecture is the first of four sessions on AI in depth. It covers artificial intelligence as it existed before large language models: statistical methods and classical machine learning, and the line of technologies that led up to, but does not include, the transformer era.</p>
+    <p>The emphasis is on terminology and on the methods themselves. Participants should come out able to read the vocabulary of the field and know what the standard techniques do: supervised and unsupervised learning, regression and classification, clustering, feature engineering, evaluation and the reasons models fail on data they have not seen. This matters partly because the current generation of systems is built on these foundations and its own vocabulary is inherited from them.</p>
+    <p>The lecture also makes a practical argument. Not every problem needs a large language model. Many tasks are solved better, faster, more cheaply and far more predictably by a classical method, and an engineer who reaches for the largest available model every time is choosing a cannon for work that calls for a smaller instrument. We look at cases where the classical approach is the correct engineering choice, and at how to tell which situation you are in.</p>
   </section>
 
   <section id="at-a-glance">
@@ -60,7 +60,7 @@
     <dl class="fields">
       <dt>Goal</dt><dd><span class="tbd">TBD</span></dd>
       <dt>Topics</dt><dd><span class="tbd">TBD</span></dd>
-      <dt>Hands-on</dt><dd>Bring up an ESP32 board from nothing and control it, working without tutorials.</dd>
+      <dt>Hands-on</dt><dd><span class="tbd">TBD</span></dd>
       <dt>Deliverable</dt><dd><span class="tbd">TBD</span></dd>
     </dl>
   </section>
@@ -71,8 +71,8 @@
   </section>
 
   <nav class="pager">
-    <a class="prev" href="lesson-05.html">Previous: Formal process, specs and the virtual AI team</a>
-    <a class="next" href="lesson-07.html">Next: ESP32 hackathon</a>
+    <a class="prev" href="lesson-05.html">Previous: ESP32 hackathon</a>
+    <a class="next" href="lesson-07.html">Next: AI theory 2: large language models and transformers</a>
   </nav>
 
 </main>

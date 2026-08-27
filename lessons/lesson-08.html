@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lesson 8: Classical AI, from statistics to the eve of the transformer</title>
+<title>Lesson 8: Inside the harness: how an IDE hosts an agent</title>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -11,10 +11,10 @@
   <div class="wrap">
     <a class="back" href="../index.html">Back to course home</a>
     <p class="kicker">Lesson 8</p>
-    <h1>Classical AI, from statistics to the eve of the transformer</h1>
-    <p class="sub">The vocabulary and methods that came before large language models, and when they remain the right choice.</p>
+    <h1>Inside the harness: how an IDE hosts an agent</h1>
+    <p class="sub">Take apart the building blocks of Visual Studio Code, then build a working harness of your own.</p>
     
-    <div class="meta"><span>Theory</span></div>
+    <div class="meta"><span>Theory and practice</span></div>
   </div>
 </header>
 
@@ -24,13 +24,13 @@
 <a href="../course-details.html" data-plain="1">Course details</a>
 <a href="../lessons/lesson-01.html"><span class="n">Lesson 1</span><span class="t">Introduction to the 10X engineer</span></a>
 <a href="../lessons/lesson-02.html"><span class="n">Lesson 2</span><span class="t">Level one, the user level</span></a>
-<a href="../lessons/lesson-03.html"><span class="n">Lesson 3</span><span class="t">Introduction to level two, the practical level</span></a>
-<a href="../lessons/lesson-04.html"><span class="n">Lesson 4</span><span class="t">Skills, APIs, MCP and project memory</span></a>
-<a href="../lessons/lesson-05.html"><span class="n">Lesson 5</span><span class="t">Formal process, specs and the virtual AI team</span></a>
-<a href="../lessons/lesson-06.html"><span class="n">Lesson 6</span><span class="t">Learning a new technology with AI as teacher and mediator</span></a>
-<a href="../lessons/lesson-07.html"><span class="n">Lesson 7</span><span class="t">ESP32 hackathon</span></a>
-<a href="../lessons/lesson-08.html" class="active"><span class="n">Lesson 8</span><span class="t">Classical AI, from statistics to the eve of the transformer</span></a>
-<a href="../lessons/lesson-09.html"><span class="n">Lesson 9</span><span class="t">Large language models and transformers</span></a>
+<a href="../lessons/lesson-03.html"><span class="n">Lesson 3</span><span class="t">Skills, APIs, MCP and project memory</span></a>
+<a href="../lessons/lesson-04.html"><span class="n">Lesson 4</span><span class="t">Formal process, specs and the virtual AI team</span></a>
+<a href="../lessons/lesson-05.html"><span class="n">Lesson 5</span><span class="t">ESP32 hackathon</span></a>
+<a href="../lessons/lesson-06.html"><span class="n">Lesson 6</span><span class="t">AI theory 1: classical AI, from statistics to the eve of the transformer</span></a>
+<a href="../lessons/lesson-07.html"><span class="n">Lesson 7</span><span class="t">AI theory 2: large language models and transformers</span></a>
+<a href="../lessons/lesson-08.html" class="active"><span class="n">Lesson 8</span><span class="t">Inside the harness: how an IDE hosts an agent</span></a>
+<a href="../lessons/lesson-09.html"><span class="n">Lesson 9</span><span class="t">The 10X engineer on the exponential slope</span></a>
 <a href="../lessons/lesson-10.html"><span class="n">Lesson 10</span><span class="t">Physical AI</span></a>
 <a href="../lessons/lesson-11.html"><span class="n">Lesson 11</span><span class="t">Personal project, definition and start of work</span></a>
 <a href="../lessons/lesson-12.html"><span class="n">Sessions 12 and 13</span><span class="t">Project presentations</span></a>
@@ -50,9 +50,9 @@
 
   <section id="description">
     <h2>Description</h2>
-    <p>The eighth lecture is theory. It covers artificial intelligence as it existed before large language models: statistical methods and classical machine learning, and the line of technologies that led up to, but does not include, the transformer era.</p>
-    <p>The emphasis is on terminology and on the methods themselves. Participants should come out able to read the vocabulary of the field and know what the standard techniques do: supervised and unsupervised learning, regression and classification, clustering, feature engineering, evaluation and the reasons models fail on data they have not seen. This matters partly because the current generation of systems is built on these foundations and its own vocabulary is inherited from them.</p>
-    <p>The lecture also makes a practical argument. Not every problem needs a large language model. Many tasks are solved better, faster, more cheaply and far more predictably by a classical method, and an engineer who reaches for the largest available model every time is choosing a cannon for work that calls for a smaller instrument. We look at cases where the classical approach is the correct engineering choice, and at how to tell which situation you are in.</p>
+    <p>The eighth lecture is the third of the four in-depth sessions, and it opens the tool that participants have been using since the start of the course. Visual Studio Code is built from a small number of clearly separated parts: the editor core, the extension host that runs third party code out of process, the language server protocol, the debug adapter protocol, the terminal, and the extension API that binds them together. We go through these parts and see what each one is responsible for.</p>
+    <p>The reason for the detour is that an AI harness is built out of exactly these pieces. The harness is what stands between a model and the work: it decides what the model is shown, which tools it may call, how a call is executed, what comes back, and what the user is asked to approve. Once the structure of the editor is clear, the structure of the agent running inside it stops being mysterious, and the behaviour of any agentic tool becomes something that can be reasoned about rather than guessed at.</p>
+    <p>Participants then build a harness of their own. It is small and it does not need to compete with anything, but it must genuinely work: take a request, assemble context, call a model, execute a tool, return the result, and keep the human in control of what is allowed to happen. Building one is the fastest way to understand every harness the participant will use afterwards.</p>
   </section>
 
   <section id="at-a-glance">
@@ -60,8 +60,8 @@
     <dl class="fields">
       <dt>Goal</dt><dd><span class="tbd">TBD</span></dd>
       <dt>Topics</dt><dd><span class="tbd">TBD</span></dd>
-      <dt>Hands-on</dt><dd><span class="tbd">TBD</span></dd>
-      <dt>Deliverable</dt><dd><span class="tbd">TBD</span></dd>
+      <dt>Hands-on</dt><dd>Build a working AI harness: context assembly, a model call, tool execution, and a human approval step.</dd>
+      <dt>Deliverable</dt><dd>A running harness, with its source, that completes at least one task end to end.</dd>
     </dl>
   </section>
 
@@ -71,8 +71,8 @@
   </section>
 
   <nav class="pager">
-    <a class="prev" href="lesson-07.html">Previous: ESP32 hackathon</a>
-    <a class="next" href="lesson-09.html">Next: Large language models and transformers</a>
+    <a class="prev" href="lesson-07.html">Previous: AI theory 2: large language models and transformers</a>
+    <a class="next" href="lesson-09.html">Next: The 10X engineer on the exponential slope</a>
   </nav>
 
 </main>
