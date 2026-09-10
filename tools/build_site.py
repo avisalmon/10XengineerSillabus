@@ -558,6 +558,11 @@ def build_index():
   <section id="about">
     <p class="opening">{e(lede)}</p>
     <p class="more-link"><a href="course-details.html">Full course details, requirements and grading</a></p>
+    <div class="downloads">
+      <span class="dl-label">Printable one page flyer</span>
+      <a class="dl" href="downloads/10x-engineer-flyer-he.pdf">Hebrew, PDF</a>
+      <a class="dl" href="downloads/10x-engineer-flyer-en.pdf">English, PDF</a>
+    </div>
   </section>
 
   <section id="lessons">
@@ -621,6 +626,11 @@ def build_details():
   <section id="overview">
     <h2>Course overview</h2>
     {intro}
+    <div class="downloads">
+      <span class="dl-label">Printable one page flyer</span>
+      <a class="dl" href="downloads/10x-engineer-flyer-he.pdf">Hebrew, PDF</a>
+      <a class="dl" href="downloads/10x-engineer-flyer-en.pdf">English, PDF</a>
+    </div>
   </section>
 
   <section id="facts">

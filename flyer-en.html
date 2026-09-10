@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>The 10X Engineer: a hands-on AI course, winter semester 2026/27</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", "Arial", sans-serif;
+    background: #dfe3ec;
+    color: #1b1140;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    margin: 12px auto;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* masthead */
+  .hero {
+    flex: 0 0 auto;
+    background: linear-gradient(125deg, #2c0f5e 0%, #5b21b6 45%, #7c3aed 72%, #db2777 100%);
+    color: #ffffff;
+    padding: 6.5mm 14mm 6mm;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    right: -30mm;
+    top: -42mm;
+    width: 108mm;
+    height: 108mm;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    right: 20mm;
+    bottom: -34mm;
+    width: 60mm;
+    height: 60mm;
+    border-radius: 50%;
+    background: rgba(56, 189, 248, 0.20);
+  }
+  .hero > * { position: relative; z-index: 1; }
+
+  .brands {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6mm;
+    padding-bottom: 4mm;
+    margin-bottom: 4.5mm;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  }
+  .brands .marks { display: flex; align-items: center; gap: 6mm; }
+  .brands .technion { height: 11mm; }
+  .brands .intel { height: 5.5mm; filter: brightness(0) invert(1); }
+  .brands .divider {
+    width: 1px;
+    height: 8mm;
+    background: rgba(255, 255, 255, 0.4);
+  }
+  .kicker {
+    font-size: 9.5pt;
+    letter-spacing: 0.03em;
+    color: #e9d9ff;
+    text-align: right;
+  }
+
+  h1 {
+    font-size: 31pt;
+    line-height: 1.04;
+    margin: 0 0 2mm;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+  }
+  h1 .x { color: #fcd34d; }
+  .sub {
+    font-size: 14pt;
+    font-weight: 600;
+    margin: 0;
+    color: #f5e9ff;
+  }
+
+  /* lead strip */
+  .lead {
+    flex: 0 0 auto;
+    background: #faf7ff;
+    border-bottom: 1px solid #e6dcf7;
+    padding: 3.5mm 14mm;
+    font-size: 9.9pt;
+  }
+  .lead p { margin: 0 0 1.8mm; }
+  .lead p:last-child { margin-bottom: 0; }
+  .lead .hl { color: #6d28d9; font-weight: 700; }
+
+  /* body */
+  .cols {
+    display: flex;
+    flex: 1 1 auto;
+    gap: 7mm;
+    padding: 4.5mm 14mm 0;
+    align-items: flex-start;
+  }
+  .main { flex: 1 1 auto; min-width: 0; }
+  .side { flex: 0 0 57mm; }
+
+  h2 {
+    font-size: 11.5pt;
+    margin: 0 0 3mm;
+    color: #4c1d95;
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+  }
+  h2::after {
+    content: "";
+    flex: 1 1 auto;
+    height: 2px;
+    background: linear-gradient(270deg, #c4b5fd, rgba(196, 181, 253, 0));
+  }
+
+  ul.lessons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 9.5pt;
+  }
+  ul.lessons li {
+    display: flex;
+    gap: 3mm;
+    align-items: baseline;
+    padding: 0.9mm 0;
+    border-bottom: 1px dotted #e2dcf0;
+  }
+  ul.lessons li:last-child { border-bottom: none; }
+  .n {
+    flex: 0 0 6mm;
+    height: 6mm;
+    border-radius: 50%;
+    background: #ede9fe;
+    color: #5b21b6;
+    font-weight: 700;
+    font-size: 8pt;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+  }
+  ul.lessons li.accent .n { background: #fde68a; color: #92400e; }
+  ul.lessons li.accent { font-weight: 600; }
+  .tag {
+    font-size: 7.4pt;
+    background: #fef3c7;
+    color: #92400e;
+    border-radius: 3px;
+    padding: 0.3mm 1.5mm;
+    margin-inline-start: 2mm;
+    white-space: nowrap;
+  }
+
+  .card { border-radius: 4mm; padding: 4mm; margin-bottom: 3.5mm; }
+  .card h3 { font-size: 10pt; margin: 0 0 2.5mm; }
+  .side .card:last-child { margin-bottom: 0; }
+
+  .card.facts {
+    background: linear-gradient(160deg, #4c1d95, #7c3aed);
+    color: #ffffff;
+  }
+  .card.facts h3 { color: #fcd34d; }
+  .card.facts dl { margin: 0; font-size: 9.6pt; }
+  .card.facts dt { color: #ddc9f5; font-size: 8.3pt; margin-top: 2.2mm; }
+  .card.facts dt:first-child { margin-top: 0; }
+  .card.facts dd { margin: 0; font-weight: 700; }
+
+  .card.need { background: #ecfeff; border: 1px solid #a5f3fc; }
+  .card.need h3 { color: #0e7490; }
+  .card.need ul { margin: 0; padding: 0 0 0 4.5mm; font-size: 9pt; }
+  .card.need li { margin-bottom: 1.8mm; }
+  .card.need li:last-child { margin-bottom: 0; }
+
+  /* instructors */
+  .staff {
+    flex: 0 0 auto;
+    margin: 4mm 14mm 0;
+    background: #f6f3ff;
+    border: 1px solid #e6dcf7;
+    border-radius: 4mm;
+    padding: 3.5mm 5mm;
+  }
+  .staff h2 { margin-bottom: 2.5mm; }
+  .staff .people { display: flex; gap: 6mm; }
+  .person { display: flex; gap: 3.5mm; align-items: center; flex: 1 1 0; }
+  .person img {
+    width: 16mm;
+    height: 16mm;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 0 1.5px #c4b5fd;
+    flex: 0 0 auto;
+  }
+  .person .name { font-size: 10.5pt; font-weight: 700; margin: 0 0 0.8mm; }
+  .person .role { font-size: 8.8pt; color: #4b4266; margin: 0; line-height: 1.35; }
+
+  /* footer band */
+  .cta {
+    flex: 0 0 auto;
+    margin-top: 3.5mm;
+    background: linear-gradient(90deg, #2c0f5e, #7c3aed 45%, #db2777);
+    color: #ffffff;
+    padding: 3.5mm 14mm;
+    display: flex;
+    align-items: center;
+    gap: 6mm;
+  }
+  .cta .qrbox {
+    flex: 0 0 auto;
+    background: #ffffff;
+    border-radius: 2mm;
+    padding: 1.5mm;
+    line-height: 0;
+  }
+  .cta .qrbox img { width: 17mm; height: 17mm; display: block; }
+  .cta .ctatext { flex: 1 1 auto; }
+  .cta .big { font-size: 12pt; font-weight: 700; margin: 0 0 0.8mm; }
+  .cta .small { font-size: 8.5pt; margin: 0; color: #f0defb; }
+  .cta .site {
+    flex: 0 0 auto;
+    font-weight: 700;
+    color: #fcd34d;
+    font-size: 9.5pt;
+  }
+
+  @media print {
+    body { background: #ffffff; }
+    .page { margin: 0; width: auto; height: 297mm; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="brands">
+      <div class="marks">
+        <img class="technion" src="assets/technion_en_white.png" alt="Technion, Israel Institute of Technology">
+        <span class="divider"></span>
+        <img class="intel" src="assets/intel.svg" alt="Intel">
+      </div>
+      <span class="kicker">Faculty of Mechanical Engineering<br>Winter semester 2026/27</span>
+    </div>
+    <h1>The <span class="x">10X</span> Engineer</h1>
+    <p class="sub">A semester of engineering practice with AI agents</p>
+  </div>
+
+  <div class="lead">
+    <p><span class="hl">Not a replacement for the engineer, a tool the engineer manages.</span> The course teaches you to work as a first line manager of AI agents: define a task, break it down, give the agent the right context, check the result and take responsibility for it.</p>
+    <p>Most of the work happens at the keyboard. Each topic opens with a short lecture and continues as practice. Alongside the practice we cover the theory, from classical machine learning to transformers, so that working with the tools rests on an understanding of what happens inside them. At the end of the semester each participant presents a working project in their own professional field.</p>
+  </div>
+
+  <div class="cols">
+    <div class="main">
+      <h2>13 sessions</h2>
+      <ul class="lessons">
+        <li><span class="n">1</span><span>Introduction to the 10X engineer: three levels of working with AI</span></li>
+        <li><span class="n">2</span><span>The user level: what a chat window can do, and where it stops</span></li>
+        <li><span class="n">3</span><span>Skills, APIs, the MCP protocol and project memory</span></li>
+        <li><span class="n">4</span><span>Formal process, specifications and the virtual AI team</span></li>
+        <li class="accent"><span class="n">5</span><span>ESP32 hackathon: two hours, tasks revealed on the day<span class="tag">competition</span></span></li>
+        <li><span class="n">6</span><span>Theory 1: classical AI, from statistics to the eve of the transformer</span></li>
+        <li class="accent"><span class="n">7</span><span>Theory 2: large language models and transformers<span class="tag">train a model</span></span></li>
+        <li class="accent"><span class="n">8</span><span>Inside the harness: how an IDE runs an agent<span class="tag">build one</span></span></li>
+        <li><span class="n">9</span><span>The 10X engineer on the exponential slope</span></li>
+        <li><span class="n">10</span><span>Physical AI: systems that sense and act, and research at the Technion</span></li>
+        <li><span class="n">11</span><span>Personal project: definition and start of work</span></li>
+        <li class="accent"><span class="n">12</span><span>Project presentations, two sessions<span class="tag">finals</span></span></li>
+      </ul>
+    </div>
+
+    <div class="side">
+      <div class="card facts">
+        <h3>Course details</h3>
+        <dl>
+          <dt>Day and time</dt>
+          <dd>Mondays, 08:30</dd>
+          <dt>Room</dt>
+          <dd>430</dd>
+          <dt>Length</dt>
+          <dd>13 sessions</dd>
+          <dt>Open to</dt>
+          <dd>Undergraduate and graduate students</dd>
+          <dt>Places</dt>
+          <dd>Limited</dd>
+        </dl>
+      </div>
+
+      <div class="card need">
+        <h3>What to bring</h3>
+        <ul>
+          <li>A personal laptop for the whole semester</li>
+          <li>A paid AI coding assistant, on the order of 20 dollars per month</li>
+          <li>An IDE, for example Visual Studio Code or Cursor</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="staff">
+    <h2>Instructors</h2>
+    <div class="people">
+      <div class="person">
+        <img src="assets/people/avi_sq.jpg" alt="Avi Salmon">
+        <div>
+          <p class="name">Avi Salmon</p>
+          <p class="role">Innovation lead at Intel Israel and chip design engineer</p>
+        </div>
+      </div>
+      <div class="person">
+        <img src="assets/people/yuval_sq.jpg" alt="Yuval Vered">
+        <div>
+          <p class="name">Yuval Vered</p>
+          <p class="role">Leads an AI chip development group at Intel</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="qrbox">
+      <img src="assets/qr.svg" alt="QR code to the course website">
+    </div>
+    <div class="ctatext">
+      <p class="big">Register through the faculty office</p>
+      <p class="small">Scan the code for the full syllabus, session topics and grading</p>
+    </div>
+    <span class="site">avisalmon.github.io/10XengineerSillabus</span>
+  </div>
+
+</div>
+</body>
+</html>

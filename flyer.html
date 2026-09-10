@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>מהנדס ה-10X: קורס AI מעשי, סמסטר חורף תשפ"ז</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", "Arial", "Alef", sans-serif;
+    background: #dfe3ec;
+    color: #1b1140;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    margin: 12px auto;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* masthead */
+  .hero {
+    flex: 0 0 auto;
+    background: linear-gradient(125deg, #2c0f5e 0%, #5b21b6 45%, #7c3aed 72%, #db2777 100%);
+    color: #ffffff;
+    padding: 6.5mm 14mm 7mm;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    left: -30mm;
+    top: -42mm;
+    width: 108mm;
+    height: 108mm;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    left: 20mm;
+    bottom: -34mm;
+    width: 60mm;
+    height: 60mm;
+    border-radius: 50%;
+    background: rgba(56, 189, 248, 0.20);
+  }
+  .hero > * { position: relative; z-index: 1; }
+
+  .brands {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6mm;
+    padding-bottom: 4mm;
+    margin-bottom: 4.5mm;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  }
+  .brands .marks { display: flex; align-items: center; gap: 6mm; }
+  .brands .technion { height: 10.5mm; }
+  .brands .intel { height: 5.5mm; filter: brightness(0) invert(1); }
+  .brands .divider {
+    width: 1px;
+    height: 8mm;
+    background: rgba(255, 255, 255, 0.4);
+  }
+  .kicker {
+    font-size: 9.5pt;
+    letter-spacing: 0.03em;
+    color: #e9d9ff;
+    text-align: left;
+  }
+
+  h1 {
+    font-size: 34pt;
+    line-height: 1.04;
+    margin: 0 0 2.5mm;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  h1 .x { color: #fcd34d; }
+  .sub {
+    font-size: 14pt;
+    font-weight: 600;
+    margin: 0;
+    color: #f5e9ff;
+  }
+
+  /* lead strip */
+  .lead {
+    flex: 0 0 auto;
+    background: #faf7ff;
+    border-bottom: 1px solid #e6dcf7;
+    padding: 4mm 14mm;
+    font-size: 10.1pt;
+  }
+  .lead p { margin: 0 0 2.2mm; }
+  .lead p:last-child { margin-bottom: 0; }
+  .lead .hl { color: #6d28d9; font-weight: 700; }
+
+  /* body */
+  .cols {
+    display: flex;
+    flex: 1 1 auto;
+    gap: 7mm;
+    padding: 5mm 14mm 0;
+    align-items: flex-start;
+  }
+  .main { flex: 1 1 auto; min-width: 0; }
+  .side { flex: 0 0 55mm; }
+
+  h2 {
+    font-size: 11.5pt;
+    margin: 0 0 3mm;
+    color: #4c1d95;
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+  }
+  h2::after {
+    content: "";
+    flex: 1 1 auto;
+    height: 2px;
+    background: linear-gradient(90deg, #c4b5fd, rgba(196, 181, 253, 0));
+  }
+
+  ul.lessons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 9.6pt;
+  }
+  ul.lessons li {
+    display: flex;
+    gap: 3mm;
+    align-items: baseline;
+    padding: 1.1mm 0;
+    border-bottom: 1px dotted #e2dcf0;
+  }
+  ul.lessons li:last-child { border-bottom: none; }
+  .n {
+    flex: 0 0 6mm;
+    height: 6mm;
+    border-radius: 50%;
+    background: #ede9fe;
+    color: #5b21b6;
+    font-weight: 700;
+    font-size: 8pt;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+  }
+  ul.lessons li.accent .n { background: #fde68a; color: #92400e; }
+  ul.lessons li.accent { font-weight: 600; }
+  .tag {
+    font-size: 7.4pt;
+    background: #fef3c7;
+    color: #92400e;
+    border-radius: 3px;
+    padding: 0.3mm 1.5mm;
+    margin-inline-start: 2mm;
+    white-space: nowrap;
+  }
+
+  .card { border-radius: 4mm; padding: 4.5mm; margin-bottom: 4mm; }
+  .card h3 { font-size: 10pt; margin: 0 0 2.5mm; }
+  .side .card:last-child { margin-bottom: 0; }
+
+  .card.facts {
+    background: linear-gradient(160deg, #4c1d95, #7c3aed);
+    color: #ffffff;
+  }
+  .card.facts h3 { color: #fcd34d; }
+  .card.facts dl { margin: 0; font-size: 9.6pt; }
+  .card.facts dt { color: #ddc9f5; font-size: 8.3pt; margin-top: 2.2mm; }
+  .card.facts dt:first-child { margin-top: 0; }
+  .card.facts dd { margin: 0; font-weight: 700; }
+
+  .card.need { background: #ecfeff; border: 1px solid #a5f3fc; }
+  .card.need h3 { color: #0e7490; }
+  .card.need ul { margin: 0; padding: 0 4.5mm 0 0; font-size: 9pt; }
+  .card.need li { margin-bottom: 1.8mm; }
+  .card.need li:last-child { margin-bottom: 0; }
+
+  /* instructors */
+  .staff {
+    flex: 0 0 auto;
+    margin: 4mm 14mm 0;
+    background: #f6f3ff;
+    border: 1px solid #e6dcf7;
+    border-radius: 4mm;
+    padding: 4mm 5mm;
+  }
+  .staff h2 { margin-bottom: 3mm; }
+  .staff .people { display: flex; gap: 6mm; }
+  .person { display: flex; gap: 3.5mm; align-items: center; flex: 1 1 0; }
+  .person img {
+    width: 16mm;
+    height: 16mm;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 0 1.5px #c4b5fd;
+    flex: 0 0 auto;
+  }
+  .person .name { font-size: 10.5pt; font-weight: 700; margin: 0 0 0.8mm; }
+  .person .role { font-size: 8.8pt; color: #4b4266; margin: 0; line-height: 1.35; }
+
+  /* footer band */
+  .cta {
+    flex: 0 0 auto;
+    margin-top: 4mm;
+    background: linear-gradient(90deg, #db2777, #7c3aed 55%, #2c0f5e);
+    color: #ffffff;
+    padding: 4mm 14mm;
+    display: flex;
+    align-items: center;
+    gap: 6mm;
+  }
+  .cta .qrbox {
+    flex: 0 0 auto;
+    background: #ffffff;
+    border-radius: 2mm;
+    padding: 1.5mm;
+    line-height: 0;
+  }
+  .cta .qrbox img { width: 19mm; height: 19mm; display: block; }
+  .cta .ctatext { flex: 1 1 auto; }
+  .cta .big { font-size: 12.5pt; font-weight: 700; margin: 0 0 1mm; }
+  .cta .small { font-size: 8.8pt; margin: 0; color: #f0defb; }
+  .cta .site {
+    flex: 0 0 auto;
+    direction: ltr;
+    font-weight: 700;
+    color: #fcd34d;
+    font-size: 9.5pt;
+  }
+
+  @media print {
+    body { background: #ffffff; }
+    .page { margin: 0; width: auto; height: 297mm; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="brands">
+      <div class="marks">
+        <img class="technion" src="assets/technion_white.png" alt="הטכניון, מכון טכנולוגי לישראל">
+        <span class="divider"></span>
+        <img class="intel" src="assets/intel.svg" alt="Intel">
+      </div>
+      <span class="kicker">הפקולטה להנדסת מכונות<br>סמסטר חורף תשפ"ז</span>
+    </div>
+    <h1>מהנדס ה-<span class="x">10X</span></h1>
+    <p class="sub">סמסטר של עבודה מעשית עם סוכני AI</p>
+  </div>
+
+  <div class="lead">
+    <p><span class="hl">לא תחליף למהנדס, כלי שהמהנדס מנהל.</span> הקורס מלמד לתפקד כמנהל קו ראשון של סוכני AI: להגדיר משימה, לפרק אותה, לספק לסוכן את ההקשר הנכון, לבדוק את התוצאה ולקחת עליה אחריות.</p>
+    <p>העבודה היא בעיקר מול מקלדת. כל נושא נפתח בהרצאה קצרה ואחריה תרגול. לצד הפרקטיקה נלמד את התיאוריה, מלמידת מכונה קלאסית ועד טרנספורמרים, כדי שהעבודה עם הכלים תישען על הבנה של מה שקורה מאחוריהם. בסוף הסמסטר כל משתתף מציג פרויקט עובד בתחום המקצועי שלו.</p>
+  </div>
+
+  <div class="cols">
+    <div class="main">
+      <h2>13 מפגשים</h2>
+      <ul class="lessons">
+        <li><span class="n">1</span><span>מבוא למהנדס ה-10X: שלוש רמות העבודה עם AI</span></li>
+        <li><span class="n">2</span><span>רמת המשתמש: מה אפשר להשיג בצ'אט, והיכן הגבול</span></li>
+        <li><span class="n">3</span><span>מיומנויות, ממשקי API, פרוטוקול MCP וזיכרון פרויקט</span></li>
+        <li><span class="n">4</span><span>תהליך פורמלי, מסמכי אפיון וצוות AI וירטואלי</span></li>
+        <li class="accent"><span class="n">5</span><span>האקתון ESP32: שעתיים, משימות שלא פורסמו מראש<span class="tag">תחרות</span></span></li>
+        <li><span class="n">6</span><span>תיאוריה 1: AI קלאסי, מסטטיסטיקה ועד ערב הטרנספורמר</span></li>
+        <li class="accent"><span class="n">7</span><span>תיאוריה 2: מודלי שפה וטרנספורמרים<span class="tag">אימון מודל</span></span></li>
+        <li class="accent"><span class="n">8</span><span>מבנה ה-Harness: איך סביבת פיתוח מריצה סוכן<span class="tag">בונים אחד</span></span></li>
+        <li><span class="n">9</span><span>מהנדס ה-10X על המדרון האקספוננציאלי</span></li>
+        <li><span class="n">10</span><span>AI פיזי: מערכות שחשות ופועלות בעולם, ומחקר בטכניון</span></li>
+        <li><span class="n">11</span><span>פרויקט אישי: הגדרה ותחילת עבודה</span></li>
+        <li class="accent"><span class="n">12</span><span>הצגת הפרויקטים, שני מפגשים<span class="tag">גמר</span></span></li>
+      </ul>
+    </div>
+
+    <div class="side">
+      <div class="card facts">
+        <h3>פרטי הקורס</h3>
+        <dl>
+          <dt>מועד</dt>
+          <dd>ימי שני, 08:30</dd>
+          <dt>חדר</dt>
+          <dd>430</dd>
+          <dt>היקף</dt>
+          <dd>13 מפגשים</dd>
+          <dt>קהל</dt>
+          <dd>הסמכה ומוסמכים</dd>
+          <dt>מקומות</dt>
+          <dd>מספר מוגבל</dd>
+        </dl>
+      </div>
+
+      <div class="card need">
+        <h3>מה צריך להביא</h3>
+        <ul>
+          <li>מחשב נייד אישי לאורך הסמסטר</li>
+          <li>מנוי בתשלום לעוזר קוד מבוסס AI, בסדר גודל של 20 דולר לחודש</li>
+          <li>סביבת פיתוח, למשל Visual Studio Code או Cursor</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="staff">
+    <h2>המרצים</h2>
+    <div class="people">
+      <div class="person">
+        <img src="assets/people/avi_sq.jpg" alt="אבי סלמון">
+        <div>
+          <p class="name">אבי סלמון</p>
+          <p class="role">מוביל חדשנות באינטל ישראל ומהנדס שבבים</p>
+        </div>
+      </div>
+      <div class="person">
+        <img src="assets/people/yuval_sq.jpg" alt="יובל ורד">
+        <div>
+          <p class="name">יובל ורד</p>
+          <p class="role">מוביל קבוצת פיתוח שבבים בתחום ה-AI באינטל</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="qrbox">
+      <img src="assets/qr.svg" alt="קוד סריקה לאתר הקורס">
+    </div>
+    <div class="ctatext">
+      <p class="big">הרשמה דרך מזכירות הפקולטה</p>
+      <p class="small">סרקו את הקוד לסילבוס המלא, נושאי השיעורים והרכב הציון</p>
+    </div>
+    <span class="site">avisalmon.github.io/10XengineerSillabus</span>
+  </div>
+
+</div>
+</body>
+</html>
